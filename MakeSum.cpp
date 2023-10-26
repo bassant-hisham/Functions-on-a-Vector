@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 int getSumOfVectorElements(vector<int>);
-int getAverageOfVectorElements(vector<int>);
+int getMinOfVectorElements(vector<int>);
 
 int main()
 {
@@ -11,8 +11,8 @@ int main()
 	int accumlatedSum = getSumOfVectorElements(vectorToBeSummed);
 	cout<<"The Sum Of the Vector Elements {1,2,3,4,5,6,7,8,9,10} = "<<accumlatedSum<<endl;
 
-	int AverageOfVectorElements = getAverageOfVectorElements(vectorToBeSummed);
-	cout<<"The Average Of the Vector Elements {1,2,3,4,5,6,7,8,9,10} = "<<AverageOfVectorElements<<endl;
+	int MinOfVectorElements = getMinOfVectorElements(vectorToBeSummed);
+	cout<<"The Min Of the Vector Elements {1,2,3,4,5,6,7,8,9,10} = "<<MinOfVectorElements<<endl;
 	return 0;
 }
 
@@ -28,13 +28,13 @@ int getSumOfVectorElements(vector<int> vectorToBeSummed)
 	return accumlatedSum;
 }
 
-int getAverageOfVectorElements(vector<int> vectorToBeSummed)
+int getMinOfVectorElements(vector<int> vectorElements)
 {
-	int accumlatedSum = 0;
-	for (int i = 0 ; i < vectorToBeSummed.size() ; i++) 
+	int MinElement = 100000000;
+	for (int i = 0 ; i < vectorElements.size() ; i++) 
 	{ 
-		accumlatedSum += vectorToBeSummed[i];
+		if ( MinElement >  vectorElements[i] )
+		MinElement = vectorElements[i];
 	}
-	int averageOfVector=accumlatedSum/vectorToBeSummed.size();
-	return averageOfVector;
+	return MinElement;
 }
